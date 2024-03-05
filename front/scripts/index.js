@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var container = document.getElementById('movie-container');
     container.className = 'max-w-screen-xl mx-auto flex flex-wrap gap-4 justify-center items-center'; 
 
-    tempData.forEach(function (movie) {
+    tempData.map (function (movie) {
         var article = document.createElement('a');
         article.href = '#';
         article.className = 'group relative block bg-black max-w-xs';
