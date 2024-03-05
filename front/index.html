@@ -4,36 +4,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <title>Document</title>
-  
+<style>
+    
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
+      height: 100vh; 
+      background-image: url('./scripts/assets/background.gif');
+      background-size: cover;
+      background-position: center;
+    }
+
+    
+    .bg-green-400 {
+      display: flex;
+      justify-content: center; 
+      width: fit-content; 
+      height: fit-content;
+      padding: 10px 20px; 
+    }
+
+    
+    .bg-green-400 a {
+      margin: 0 5px; 
+    }
+  </style>
 </head>
 
 <body>
-  <div class="h-screen justify-center bg-cover bg-center" style="background-image: url('./scripts/assets/background.gif');">
-  <header>
-  
-    <div class="text-center">
-      <a href="sobre_mi.html" class="text-blue-500 hover:underline">Sobre mi proyecto</a>
-      <span class="mx-2">|</span>
-      <a href="historia_del_cine.html" class="text-blue-500 hover:underline">Historia del cine</a>
-      <span class="mx-2">|</span>
-      <a href="webs_recomendadas.html" class="text-blue-500 hover:underline">Webs recomendadas</a>
-    </div>
-  </header>
+  <div class="content-wrapper">
+    <div class="h-screen">
+      <div class="mx-auto">
+        <header class="bg-green-400 rounded-lg mb-4 md:ml-48 sm:ml-0">
+          <div class="text-center">
+            <a href="sobre_mi.html" class="text-blue-500 hover:underline bg-teal-400 p-2 rounded-md inline-block">Sobre mi
+              proyecto</a>
+            <a href="historia_del_cine.html"
+              class="text-blue-500 hover:underline bg-teal-400 p-2 rounded-md inline-block">Historia del cine</a>
+            <a href="webs_recomendadas.html"
+              class="text-blue-500 hover:underline bg-teal-400 p-2 rounded-md inline-block">Webs recomendadas</a>
+          </div>
+        </header>
 
-  <div class="mt-20">
-    <h1 class="text-xl font-bold text-center text-white mb-5">Tarjetas Renderizadas</h1>
-    <div>
-      <div id="movie-container">
-       
+        <div class="mt-20">
+          <h1 class="text-xl font-bold text-center text-white mb-5">Tarjetas Renderizadas</h1>
+          <div>
+            <div id="movie-container">
+
+            </div>
+          </div>
+        </div>
+
+        <script src="./scripts/tempData.js"></script>
+        <script src="./scripts/index.js"></script>
       </div>
     </div>
   </div>
-
-  <script src="./scripts/tempData.js"></script>
-  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
