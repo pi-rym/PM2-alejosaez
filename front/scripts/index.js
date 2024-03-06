@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var container = document.getElementById('movie-container');
+  let container = document.getElementById('movie-container');
   container.className = 'max-w-screen-xl mx-auto flex flex-wrap gap-4 justify-center items-center'; 
 
   $.get('https://students-api.2.us-1.fl0.io/movies', function(data) {
@@ -11,7 +11,7 @@ $(document).ready(function() {
 
   function renderMovieCards(data) {
       data.forEach(movie => {
-          var article = document.createElement('a');
+          let article = document.createElement('a');
           article.href = '#';
           article.className = 'group relative block bg-black max-w-xs';
           article.style.margin = '0 auto'; 
