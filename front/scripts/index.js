@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let container = document.getElementById('movie-container');
-    container.className = 'container'; // Utilizamos la clase 'container' de Bootstrap en lugar de 'max-w-screen-xl mx-auto flex flex-wrap gap-4 justify-center items-center'
+    container.classList.add('d-flex', 'flex-wrap', 'gap-4', 'justify-content-center'); // Agregamos clases de Bootstrap para flexbox
 
     $.get('https://students-api.2.us-1.fl0.io/movies', function(data) {
         renderMovieCards(data);
@@ -11,15 +11,15 @@ $(document).ready(function() {
     function renderMovieCards(data) {
         data.forEach(movie => {
             let article = document.createElement('div');
-            article.className = 'card'; // Utilizamos la clase 'card' de Bootstrap en lugar de 'group relative block bg-black max-w-xs'
-            article.style.width = '18rem'; // Ajustamos el ancho de la tarjeta según Bootstrap
+            article.className = 'card mb-3';
+            article.style.width = '280px';
 
             article.innerHTML = `
-                <img src="${movie.poster}" class="card-img-top" alt="...">
+                <img src="${movie.poster}" class="card-img-top" alt="..." style="max-width: 280px;"> <!-- Ajustamos el max-width de la imagen -->
                 <div class="card-body">
-                    <p class="card-text text-sm font-medium uppercase tracking-widest text-pink-500">${movie.genre.join(', ')}</p>
-                    <p class="card-title text-md font-bold text-white">${movie.title}</p>
-                    <p class="card-text text-sm text-white">
+                    <p class="card-text text-sm font-medium text-uppercase text-pink-500">${movie.genre.join(', ')}</p>
+                    <h5 class="card-title text-md font-bold text-black">${movie.title}</h5>
+                    <p class="card-text text-sm text-black">
                         Director: ${movie.director}<br>
                         Year: ${movie.year}<br>
                         Duration: ${movie.duration}<br>
@@ -27,7 +27,7 @@ $(document).ready(function() {
                     </p>
                 </div>
             `;
-
+    
             container.appendChild(article);
         });
     }
