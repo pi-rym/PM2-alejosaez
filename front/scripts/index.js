@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let container = document.getElementById('movie-container');
-    container.classList.add('d-flex', 'flex-wrap', 'gap-4', 'justify-content-center'); // Agregamos clases de Bootstrap para flexbox
+    container.classList.add('d-flex', 'flex-wrap', 'gap-4', 'justify-content-center'); 
 
     $.get('https://students-api.2.us-1.fl0.io/movies', function(data) {
         renderMovieCards(data);
@@ -11,7 +11,7 @@ $(document).ready(function() {
     function renderMovieCards(data) {
         data.forEach(movie => {
             let article = document.createElement('div');
-            article.className = 'card mb-3 custom-card'; // Agregamos la clase personalizada custom-card
+            article.className = 'card mb-3 custom-card'; 
             article.style.width = '280px';
 
             article.innerHTML = `
@@ -31,11 +31,10 @@ $(document).ready(function() {
             container.appendChild(article);
         });
 
-        // Agregar efecto de hover a las tarjetas
-        $('.custom-card').hover(function() {
-            $(this).addClass('shadow-lg'); // Añade una sombra más pronunciada al hacer hover
-        }, function() {
-            $(this).removeClass('shadow-lg'); // Quita la sombra al quitar el hover
-        });
+        // $('.custom-card').hover(function() {
+        //     $(this).addClass('shadow-lg'); 
+        // }, function() {
+        //     $(this).removeClass('shadow-lg'); 
+        // });
     }
 });
