@@ -1,0 +1,7 @@
+.custom-card {
+    transition: transform 0.3s ease; /* Agregamos una transición de transformación */
+}
+
+.custom-card:hover {
+    transform: scale(1.05); /* Escalamos la tarjeta al hacer hover */
+}
