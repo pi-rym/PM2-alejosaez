@@ -15,7 +15,7 @@ $(document).ready(function() {
             article.style.width = '280px';
 
             article.innerHTML = `
-                <img src="${movie.poster}" class="card-img-top" alt="..." style="max-width: 280px;"> <!-- Ajustamos el max-width de la imagen -->
+                <img src="${movie.poster}" class="card-img-top" alt="..." style="max-width: 280px;">
                 <div class="card-body">
                     <p class="card-text text-sm font-medium text-uppercase text-pink-500">${movie.genre.join(', ')}</p>
                     <h5 class="card-title text-md font-bold text-black">${movie.title}</h5>
@@ -31,10 +31,6 @@ $(document).ready(function() {
             container.appendChild(article);
         });
 
-        // $('.custom-card').hover(function() {
-        //     $(this).addClass('shadow-lg'); 
-        // }, function() {
-        //     $(this).removeClass('shadow-lg'); 
-        // });
+      
     }
 });
