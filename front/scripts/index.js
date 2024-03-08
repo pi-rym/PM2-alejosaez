@@ -1,4 +1,4 @@
-const renderCard = require("./renderCard").default;
+const renderCard = require("./renderCard");
 
 // const renderCars = require(renderCars)
 
