@@ -25,5 +25,5 @@ function renderCard(data) {
         container.appendChild(article);})
     }
 
-    // export default renderCard
+    
     module.exports = renderCard
