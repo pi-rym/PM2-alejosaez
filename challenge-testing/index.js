@@ -12,8 +12,10 @@ class CarritoCompra {
     }
   
     aplicarDescuento(porcentaje) {
-        const totalConDescuento = this.calcularTotal() * (1 - porcentaje / 100);
-        return totalConDescuento;
+      
+      this.productos.forEach(producto => {
+        producto.precio -= (producto.precio * porcentaje / 100);
+      });
     }
     
 }    

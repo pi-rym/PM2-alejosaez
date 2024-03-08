@@ -44,7 +44,7 @@ describe('CarritoCompra', () => {
       { nombre: 'Producto2', precio: 20 }
     ];
     productos.forEach(producto => carrito.agregarProducto(producto));
-    carrito.aplicarDescuento(); // Aplica un descuento del 10%
+    carrito.aplicarDescuento(10);
     expect(carrito.calcularTotal()).toBe(27);
   });
   
