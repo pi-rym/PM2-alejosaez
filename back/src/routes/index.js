@@ -4,5 +4,5 @@ const {testController} = require("../controllers/index")
 
 const router = Router();
 
-router.get("/", testController)
+router.get("/movies", testController)
 module.exports= router
