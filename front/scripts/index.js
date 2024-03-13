@@ -3,7 +3,7 @@ const axios = require("axios");
 $(document).ready(function() {
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://students-api.2.us-1.fl0.io/movies');
+            const response = await axios.get('http://localhost:3000/movies');
             console.log(response)
             const data = response.data; 
             renderCard(data);

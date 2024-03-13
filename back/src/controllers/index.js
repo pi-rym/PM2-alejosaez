@@ -1,9 +1,9 @@
-const axios = require("axios");
+const {getAllMovies}= require("../services/movieService")
 
 const testController = async (req, res) => {
     try {
-        const response = await axios.get('https://students-api.up.railway.app/movies');
-        res.status(200).send(response.data);
+        const response = await getAllMovies()
+        res.status(200).json(response);
     } catch (error) {
         console.error("Error en la solicitud a la API:", error);
         res.status(400).send("Error en la solicitud a la API");
