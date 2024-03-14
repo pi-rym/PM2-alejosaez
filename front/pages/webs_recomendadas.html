@@ -9,6 +9,13 @@
         <link rel="stylesheet" href="./../style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Webs Recomendadas</title>
+    <style>
+
+        body {
+            background-color: black;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -17,13 +24,35 @@
         crossorigin="anonymous"></script>
 
     <div>
-        <div class="header p-2 d-flex justify-content-center flex-wrap">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgba(252, 249, 249, 0.5);">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">NetApi</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/sobre_mi.html">Sobre Mi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/historia_del_cine.html">Historia del cine</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- <div class="header p-2 d-flex justify-content-center flex-wrap">
             <button onclick="window.location.href='../index.html'" class="btn btn-outline-danger link-no-style text-red-700 px-4 py-2 text-sm font-medium mx-2 my-2">Inicio</button>
             <button onclick="window.location.href='sobre_mi.html'" class="btn btn-outline-danger link-no-style text-red-700 px-4 py-2 text-sm font-medium mx-2 my-2">Sobre mi proyecto</button>
             <button onclick="window.location.href='historia_del_cine.html'" class="btn btn-outline-danger link-no-style text-red-700 px-4 py-2 text-sm font-medium mx-2 my-2">Historia del cine</button>
             <button onclick="window.location.href='webs_recomendadas.html'" class="btn btn-outline-danger link-no-style text-red-700 px-4 py-2 text-sm font-medium mx-2 my-2">Webs recomendadas</button>
 
-        </div>
+        </div> -->
     </div>
 
     
