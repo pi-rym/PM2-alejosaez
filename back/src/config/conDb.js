@@ -1,12 +1,14 @@
-// hacer la conexion a la base de datos en una FUNCIOn
-// exportar esta funcion
 require("dotenv").config();
+const mongoose = require("mongoose");
+const mongoURI = process.env.MONGO_URI;
 
-const mongoose=require("mongoose")
-const conDb=async ()=>{
-    console.log(process.env.MONGO_URI)
-// aca hacemos la concexion a la base de datos con la url  que nos da mongoDB
-
+const conDb = async () => {
+    try {
+        await mongoose.connect(mongoURI);
+        console.log("Conectado a la base de datos:", process.env.MONGO_URI);
+    } catch (error) {
+        console.error("Error al conectar a la base de datos:", error);
+    }
 }
 
-module.exports = conDb
+module.exports = conDb;

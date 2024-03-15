@@ -1,7 +1,8 @@
+const Movie = require("../models/Movie");
 const axios = require("axios");
 
-class Movie {
-    constructor({ title, poster, director, year, duration, genre,rate }) {
+class MovieBase {
+    constructor({ title, poster, director, year, duration, genre, rate }) {
         if (!title || !poster || !director) {
             throw new Error("Se requieren las propiedades 'title', 'poster' y 'director'");
         }
@@ -12,19 +13,39 @@ class Movie {
         this.year = year;
         this.duration = duration;
         this.genre = genre;
-        this.rate=rate;
+        this.rate = rate;
     }
 }
 
-module.exports ={
-    getAllMovies : async() =>{
+module.exports = {
+    getAllMovies: async () => {
         try {
             const response = await axios.get('https://students-api.up.railway.app/movies');
             const moviesData = response.data;
-            const movies = moviesData.map(movie => new Movie(movie));
+            const movies = moviesData.map(movie => new MovieBase(movie));
             return movies;
         } catch (error) {
             throw new Error("Error en la solicitud a la API:", error);
         }
+    },
+    getAllMoviesDb: async () => {
+        const movies = await Movie.find();
+        return movies;
+    },
+    create: async (title, director, genre, rate, duration, poster) => {
+        try {
+            const newMovie = new Movie({
+                title,
+                director,
+                genre,
+                rate,
+                duration,
+                poster
+            });
+            const savedMovie = await newMovie.save();
+            return savedMovie;
+        } catch (error) {
+            throw new Error("Error al crear la película:", error);
+        }
     }
-}
+};
