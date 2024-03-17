@@ -30,6 +30,7 @@ module.exports = {
     },
     getAllMoviesDb: async () => {
         const movies = await Movie.find();
+        console.log("rn rl servicio de mves recuperasdas", movies)
         return movies;
     },
     create: async (title, director, genre, rate, duration, poster) => {

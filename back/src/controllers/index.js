@@ -9,6 +9,7 @@ const testController = async (req, res) => {
         res.status(400).send("Error en la solicitud a la API");
     }
 };
+
 const moviesDB = async (req, res) => {
     try {
         const moviesFromDb = await getAllMoviesDb();
@@ -17,12 +18,11 @@ const moviesDB = async (req, res) => {
             title: movie.title,
             poster: movie.poster,
             director: movie.director,
-            year: movie.year || null,
-            duration: movie.duration || null,
-            genre: Array.isArray(movie.genre) ? movie.genre.join(', ') : [], 
-            rate: movie.rate || null
+            year: movie.year,
+            duration: movie.duration,
+            genre: movie.genre,
+            rate: movie.rate
         }));
-        
         
         res.status(200).json(formattedMovies);
     } catch (error) {
@@ -30,6 +30,7 @@ const moviesDB = async (req, res) => {
         res.status(500).send("Error al obtener películas de la base de datos");
     }
 };
+
 
 const createMovie = async (req, res) => {
     try {
