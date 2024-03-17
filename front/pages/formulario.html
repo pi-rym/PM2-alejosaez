@@ -8,13 +8,12 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./../style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <title>Historia del cine</title>
     <style>
-
         body {
             background-color: black;
         }
-
     </style>
 </head>
 
@@ -52,29 +51,31 @@
 
         <div class="container mt-5">
             <h1 class="text-center mb-4 text-white">Formulario de Película</h1>
-            <form id="movieForm" class="row g-3">
+            <form id="movieForm" class="row g-3" method="post" action="http://localhost:3000/movies">
                 <div class="col-md-6">
                     <label for="title" class="form-label text-white">Título</label>
                     <input type="text" class="form-control" id="title" name="title" required>
                 </div>
                 <div class="col-md-6">
                     <label for="year" class="form-label text-white">Año</label>
-                    <input type="number" class="form-control" id="year" name="year" required pattern="[0-9]{4}" title="Ingrese un año de 4 dígitos">
+                    <input type="number" class="form-control" id="year" name="year" required pattern="[0-9]{4}"
+                        title="Ingrese un año de 4 dígitos">
                 </div>
-                
-                
                 <div class="col-md-6">
                     <label for="director" class="form-label text-white">Director</label>
                     <input type="text" class="form-control" id="director" name="director" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="director" class="form-label text-white">Duracion</label>
+                    <input type="text" class="form-control" id="duracion" name="duracion" required>
                 </div>
                 <div class="col-md-6">
                     <label for="genre" class="form-label text-white">Genre</label>
                     <input type="text" class="form-control" id="genre" name="genre" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="posts" class="form-label text-white">Posts</label>
+                    <label for="posts" class="form-label text-white">Poster</label>
                     <input type="text" class="form-control" id="post" name="post" required>
-
                 </div>
                 <div class="col-md-6">
                     <label for="rate" class="form-label text-white">Rate</label>
@@ -86,19 +87,21 @@
                 </div>
             </form>
         </div>
+        
     </div>
 
 
-    <script src="./scripts/index.js"></script>
+    <script src="./../scripts/index.js"></script>
 
     <script>
         function limpiarFormulario() {
             document.getElementById("movieForm").reset();
         }
     </script>
-    <script src="validationForm.js"></script>
+    <script src="./../scripts/validacionForm.js"></script>
 
 </body>
+
 </html>
 </body>
 

@@ -34,7 +34,12 @@ const moviesDB = async (req, res) => {
 
 const createMovie = async (req, res) => {
     try {
+        console.log("Llegue al POST DEL BACKEND")
+
         const movieInfo = req.body;
+
+        console.log("recupere del post el objeto", movieInfo)
+
         const { title, director, genre, rate, duration, poster } = movieInfo;
         const response = await create(title, director, genre, rate, duration, poster);
         res.status(201).send("Se creo la pelicula con exito")

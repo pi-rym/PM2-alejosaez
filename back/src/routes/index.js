@@ -5,7 +5,8 @@ const router = Router();
 
 
 router.get("/movies", moviesDB)
-router.post("/movies", validarCampos, validarAnio, createMovie)
+// router.post("/movies", validarCampos, validarAnio, createMovie)
+router.post("/movies", createMovie)
 
 
 module.exports= router
