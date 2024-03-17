@@ -1,4 +1,4 @@
-const {getAllMovies, getAllMoviesDb}= require("../services/movieService")
+const {getAllMovies, getAllMoviesDb,create}= require("../services/movieService")
 
 const testController = async (req, res) => {
     try {
@@ -9,19 +9,43 @@ const testController = async (req, res) => {
         res.status(400).send("Error en la solicitud a la API");
     }
 };
-
 const moviesDB = async (req, res) => {
     try {
-        const response = await getAllMoviesDb()
-        res.status(200).json(response);
+        const moviesFromDb = await getAllMoviesDb();
+        
+        const formattedMovies = moviesFromDb.map(movie => ({
+            title: movie.title,
+            poster: movie.poster,
+            director: movie.director,
+            year: movie.year || null,
+            duration: movie.duration || null,
+            genre: Array.isArray(movie.genre) ? movie.genre.join(', ') : [], 
+            rate: movie.rate || null
+        }));
+        
+        
+        res.status(200).json(formattedMovies);
+    } catch (error) {
+        console.error("Error al obtener películas de la base de datos:", error);
+        res.status(500).send("Error al obtener películas de la base de datos");
+    }
+};
+
+const createMovie = async (req, res) => {
+    try {
+        const movieInfo = req.body;
+        const { title, director, genre, rate, duration, poster } = movieInfo;
+        const response = await create(title, director, genre, rate, duration, poster);
+        res.status(201).send("Se creo la pelicula con exito")
     } catch (error) {
         console.error("Error en la solicitud a la DB:", error);
-        res.status(400).send("Error en la solicitud a la API");
+        res.status(400).send("Error al crear una película");
     }
 };
 
 
 module.exports = {
     testController,
-    moviesDB
+    moviesDB,createMovie
+
 };
