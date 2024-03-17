@@ -1,4 +1,5 @@
 const renderCard = require("./renderCard");
+const validacionForm= require("./validacionForm")
 const axios = require("axios");
 $(document).ready(function() {
     const fetchData = async () => {

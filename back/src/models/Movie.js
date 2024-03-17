@@ -2,11 +2,12 @@ const mongoose= require("mongoose")
 
 const createSchema= new mongoose.Schema({
     title: String,
+    poster:String,
     director: String,
-    genre: String,
-    rate: Number,
-    duration:Number,
-    poster:String
+    year: Number,
+    duration: String,
+    genre: Array,
+    rate: Number
 })
 
 const Movie = mongoose.model("Movie", createSchema)

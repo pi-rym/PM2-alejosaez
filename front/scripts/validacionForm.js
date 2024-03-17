@@ -1,5 +1,29 @@
-
+const axios = require("axios");
 document.addEventListener("DOMContentLoaded", function() {
+  
+    const enviarFormulario = async (formData) => {
+        try {
+            const response = await axios.post('http://localhost:3000/movies', formData);
+            console.log(response.data);
+            
+        } catch (error) {
+            console.error("Error al enviar los datos al backend:", error.message);
+            
+        }
+    };
+
+   
+    document.getElementById("movieForm").addEventListener("submit", async function(event) {
+        event.preventDefault(); 
+
+       
+        const formData = new FormData(this);
+
+       
+        enviarFormulario(formData);
+    });
+
+   
     document.getElementById("poster").addEventListener("input", function(event) {
         let input = event.target;
         let url = input.value;
