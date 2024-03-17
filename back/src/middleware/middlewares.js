@@ -16,10 +16,9 @@ const validarAnio = (req, res, next) => {
     const { year } = req.body;
 
    
-    if (year && year.length !== 4) {
-        return res.status(400).json({ error: 'El año debe tener exactamente 4 dígitos' });
+    if (isNaN(year) || year.toString().length !== 4) {
+        return res.status(400).json({ error: 'El año debe ser un número de 4 dígitos' });
     }
-
     
     next();
 };
