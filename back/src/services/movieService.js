@@ -34,6 +34,7 @@ module.exports = {
         return movies;
     },
     create: async (title, director, genre, rate, duration, poster) => {
+        console.log("Datos recibidos:", { title, director, genre, rate, duration, poster });
         try {
             const newMovie = new Movie({
                 title,
