@@ -1,8 +1,28 @@
+async function sendDataToBackend(movie) {
+    try {
+        const response = await fetch('http://localhost:3000/movies', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movie)
+        });
+
+        if (!response.ok) {
+            throw new Error(response.ok);
+        }
+
+        return await response.json();
+    } catch (error) {
+        throw new Error('Error al enviar los datos al backend.');
+    }
+}
+
 // Encuentra el botón de enviar dentro del formulario
 const submitButton = document.querySelector('#movieForm button[type="submit"]');
 
 // Agrega un evento de clic al botón de enviar
-submitButton.addEventListener('click', function(event) {
+submitButton.addEventListener('click', async function(event) {
     // Detiene el comportamiento predeterminado del botón de enviar
     event.preventDefault();
 
@@ -41,10 +61,14 @@ submitButton.addEventListener('click', function(event) {
         "genre": genre.split(",").map(genre => genre.trim()), // Convierte a un array y elimina espacios en blanco
         "rate": parseInt(rate) // Convierte a número
     };
-
-    // Convierte el objeto a una cadena de texto
-    const movieString = JSON.stringify(movie, null, 2); // null y 2 son para dar formato legible
-
-    // Muestra un alert con la información del objeto
-    alert(movieString);
+    try {
+        // Envía los datos al backend
+        const responseData = await sendDataToBackend(movie);
+        console.log(responseData);
+        // Manejar la respuesta del backend si es necesario
+        alert('Datos enviados correctamente.');
+    } catch (error) {
+        console.error('Error:', error.message);
+        alert('Error al enviar los datos al backend.');
+    }
 });
