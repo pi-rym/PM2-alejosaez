@@ -71,3 +71,33 @@ submitButton.addEventListener('click', async function (event) {
         alert('Error al enviar los datos al backend.');
     }
 });
+
+
+
+function validarFormulario() {
+   
+}
+
+
+function limpiarFormulario() {
+   
+    let formulario = document.getElementById("movieForm");
+
+    
+    formulario.reset();
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    let limpiarBtn = document.getElementById("limpiarBtn");
+
+   
+    limpiarBtn.addEventListener("click", limpiarFormulario);
+});
+
+
+document.getElementById("movieForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    validarFormulario();
+});
