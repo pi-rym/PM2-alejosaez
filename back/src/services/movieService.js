@@ -33,11 +33,12 @@ module.exports = {
         console.log("rn rl servicio de mves recuperasdas", movies)
         return movies;
     },
-    create: async (title, director, genre, rate, duration, poster) => {
-        console.log("Datos recibidos:", { title, director, genre, rate, duration, poster });
+    create: async (title,year, director, genre, rate, duration, poster) => {
+        console.log("Datos recibidos:", { title,year, director, genre, rate, duration, poster });
         try {
             const newMovie = new Movie({
                 title,
+                year,
                 director,
                 genre,
                 rate,

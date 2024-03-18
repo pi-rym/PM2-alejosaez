@@ -40,8 +40,8 @@ const createMovie = async (req, res) => {
 
         console.log("recupere del post el objeto", movieInfo)
 
-        const { title, director, genre, rate, duration, poster } = movieInfo;
-        const response = await create(title, director, genre, rate, duration, poster);
+        const { title,year, director, genre, rate, duration, poster } = movieInfo;
+        const response = await create(title,year, director, genre, rate, duration, poster);
         res.status(201).send("Se creo la pelicula con exito")
     } catch (error) {
         console.error("Error en la solicitud a la DB:", error);
