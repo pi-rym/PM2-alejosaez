@@ -10,7 +10,7 @@ $(document).ready(function () {
             renderCard(data);
         } catch (err) {
             alert("Error: " + err.message);
-            // No se hace nada en caso de error, no se renderiza nada
+            
         }
     };
 
