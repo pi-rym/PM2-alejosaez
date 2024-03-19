@@ -42,6 +42,12 @@ submitButton.addEventListener('click', async function (event) {
         return;
     }
 
+    if (year < 1900 || year > 2025) {
+        // Si está fuera del rango, muestra un mensaje de error
+        alert("El año debe estar entre 1900 y 2025");
+        return;
+    }
+
     if (rate < 1 || rate > 10 || isNaN(rate)) {
         alert('La tasa debe estar entre 1 y 10.');
         return;
